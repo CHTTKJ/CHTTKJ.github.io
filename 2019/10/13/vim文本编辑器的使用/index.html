@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="##vim简介 vi与vimvi编辑器是所有Unix及Linux系统下标准的编辑器，他就相当于windows系统中的记事本一样，它的强大不逊色于任何最新的文本编辑器。他是我们使用Linux系统不能缺少的工具。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，学会它后，您将在Linux的世界里畅行无阻。vim 具有程序编辑的能力，可以以字体颜色辨别语法的正确性，方便程序设计；因为程序">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim文本编辑器的使用">
+<meta property="og:url" content="http://yoursite.com/2019/10/13/vim文本编辑器的使用/index.html">
+<meta property="og:site_name" content="你们对力量一无所知">
+<meta property="og:description" content="##vim简介 vi与vimvi编辑器是所有Unix及Linux系统下标准的编辑器，他就相当于windows系统中的记事本一样，它的强大不逊色于任何最新的文本编辑器。他是我们使用Linux系统不能缺少的工具。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，学会它后，您将在Linux的世界里畅行无阻。vim 具有程序编辑的能力，可以以字体颜色辨别语法的正确性，方便程序设计；因为程序">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-14T07:32:01.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim文本编辑器的使用">
+<meta name="twitter:description" content="##vim简介 vi与vimvi编辑器是所有Unix及Linux系统下标准的编辑器，他就相当于windows系统中的记事本一样，它的强大不逊色于任何最新的文本编辑器。他是我们使用Linux系统不能缺少的工具。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，学会它后，您将在Linux的世界里畅行无阻。vim 具有程序编辑的能力，可以以字体颜色辨别语法的正确性，方便程序设计；因为程序">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/13/vim文本编辑器的使用/">
+
+
+
+
+
+  <title>vim文本编辑器的使用 | 你们对力量一无所知</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+
+  <div class="blog-sidebar-right"> 
+    
+
+<div class="card-announcement">
+    <div class="card-content">
+        <div class="item_headline">
+            <i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i>
+            <span>公告</span>
+        </div>
+        <div class="announcement_content">
+            谢谢你这么帅，这么漂亮还来看我的博客，如果喜欢的话记得收藏哦
+        </div>
+    </div>
+</div>
+
+
+<div class="sidebar-categoreus">
+    <div class="item_headline">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
+        <span>分类</span>
+    </div>
+    <div class="categories-list-block">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul> 
+    </div>
+</div>
+
+
+<div class="recent-posts">
+    <div class="item_headline">
+        <i class="fa fa-history" aria-hidden="true"></i>
+        <span>近期文章<span>
+    </span></span></div>
+    <ul class="posts-list-block">
+        
+        
+        <li>
+            <a href="/2019/10/13/vim文本编辑器的使用/" title="vim文本编辑器的使用" target="_blank">vim文本编辑器的使用</a>
+        </li>
+        
+        <li>
+            <a href="/2019/10/13/我的第一篇博客文章/" title="我的第一篇博客文章" target="_blank">我的第一篇博客文章</a>
+        </li>
+        
+        <li>
+            <a href="/2019/10/13/hello-world/" title="Hello World" target="_blank">Hello World</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+
+  </div>
+
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+<a href="localhost:4000" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+
+
+
+
+
+
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">你们对力量一无所知</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">XJTU</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/vim文本编辑器的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TTKJ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你们对力量一无所知">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vim文本编辑器的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T23:00:51+08:00">
+                2019-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##vim简介</p>
+<p>vi与vim<br>vi编辑器是所有Unix及Linux系统下标准的编辑器，他就相当于windows系统中的记事本一样，它的强大不逊色于任何最新的文本编辑器。他是我们使用Linux系统不能缺少的工具。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，学会它后，您将在Linux的世界里畅行无阻。<br>vim 具有程序编辑的能力，可以以字体颜色辨别语法的正确性，方便程序设计；<br>因为程序简单，编辑速度相当快速。<br>vim可以当作vi的升级版本，他可以用多种颜色的方式来显示一些特殊的信息。<br>vim会依据文件扩展名或者是文件内的开头信息， 判断该文件的内容而自动的执行该程序的语法判断式，再以颜色来显示程序代码与一般信息。<br>vim里面加入了很多额外的功能，例如支持正则表达式的搜索、多文件编辑、块复制等等。 这对于我们在Linux上进行一些配置文件的修改工作时是很棒的功能。</p>
+<hr>
+<a id="more"></a>
+<br>
+##具体使用
+
+<p>为何要学 vi<br>所有的Unix Like系统都会内建vi文本编辑器，其他的文本编辑器则不一定会存在；<br>一些软件的编辑接口会主动调用vi (例如 crontab, visudo, edquota 等命令)；</p>
+<p>vi的使用<br>基本上vi可以分为三种状态，分别是一般模式、编辑模式和命令行模式，各模式的功能区分如下：</p>
+<p>一般模式：<br>以vi打开一个文件就直接进入一般模式了(这是默认的模式)。在这个模式中， 你可以使用上下左右按键来移动光标，你可以使用删除字符或删除整行来处理文件内容， 也可以使用复制、粘贴来处理你的文件数据。</p>
+<p>编辑模式：<br>在一般模式中可以进行删除、复制、粘贴等的操作，但是却无法编辑文件的内容，只有当到你按下【i, I, o, O, a, A, r, R】等任何一个字母之后才会进入编辑模式。这时候屏幕的左下方会出现【INSERT或 REPLACE】的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下【Esc】即可退出编辑模式。</p>
+<p>命令行模式：<br>输入【 : / ? 】三个中的任何一个，就可以将光标移动到最底下那一行。在这个模式中， 可以提供查找、读取、存盘、替换字符、离开vi、显示行号等的动作则是在此模式中完成的！</p>
+<p>一般模式可用的按钮说明<br>移动光标<br>【h、j、k、l】，分别控制光标左、下、上、右移一格<br>按【ctrl+b】屏幕往”后”移动一页<br>按【ctrl+f】屏幕往”前”移动一页</p>
+<p>【n<space>】光标向右移动n个字符<br>【Home】移动到这一行的最前面字符处:0数字，但不能用数字小键盘上的数字<br>【End】 移动到这一行的最后面字符处:$，我测试好像不行<br>【w】光标跳到下个字的开头<br>【e】光标跳到下个字的字尾</space></p>
+<p>【H】 光标移动到这个屏幕的最上方那一行的第一个字符<br>【M】 光标移动到这个屏幕的中间那一行的第一个字符<br>【L】光标移动到这个屏幕的最下方那一行的第一个字符</p>
+<p>【G】 移动到这个文件的最后一行<br>【nG】移动到这个文件的第n行(可配合:set nu)<br>【gg】 移动到这个文件的第一行，相当于1G<br>【n<enter>】光标向下移动n行</enter></p>
+<p>查找与替换<br>【/word】 向光标向下寻找一个名称为word的字符串<br>【?word】 向光标向上寻找一个名称为word的字符串<br>【n】 代表重复前一个查找的动作<br>【N】 与n刚好相反，为【反向】进行行前一个查找动作</p>
+<p>【:n1,n2s/word1/word2/g】  n1与n2为数字，在第n1与n2行之间查找word1 这个字符串，并将该字符串替换为word2</p>
+<p>【:1,$s/word1/word2/g】 从第一行到最后一行查找word1字符串，并将该字符串替换为word2<br>【:1,$s/word1/word2/gc】 从第一行到最后一行查找word1字符串，并将该字符串替换为word2 ，且在替换前提示用户确认是否进行替换</p>
+<p>删除、复制与粘贴</p>
+<p>【x】 为向后删除一个字符 (相当于【del】键)<br>【X】 为向前删除一个字符(相当于【backspace】键)<br>【nx】 连续向后删除n个字符</p>
+<p>【dd】 删除光标所在行<br>【ndd】 删除光标所在的向下n行<br>【d1G】 删除光标所在行到第一行的所有数据<br>【dG】 删除光标所在到最后一行的所有数据</p>
+<p>【d$】 删除光标所在处，到该行的最后一个字符<br>【d0】 删除光标所在处，到该行的最前一个字符</p>
+<p>【yy】 复制光标所在的那一行<br>【nyy】 复制光标所在的向下n列</p>
+<p>【y1G】 复制光标所在行到第一行的所有数据<br>【yG】 复制光标所在行到最后一行的所有数据</p>
+<p>【y0】 复制光标所在的那个字符到该行行首的所有数据<br>【y$】 复制光标所在的那个字符到该行行尾的所有数据</p>
+<p>【p】将已复制的数据在光标下一行粘贴上<br>【P】 则为贴在光标的上一行</p>
+<p>【u】 恢复前一个操作<br>【Ctrl+r】重做上一个操作</p>
+<p>【.】 是重复前一个操作</p>
+<p>一般模式切换到编辑模式的可用的按钮说明<br>【i, I】 进入编辑模式：<br>i 为【从目前光标所在处插入】<br>I 为【在目前所在行的第一个非空格符处开始插入】</p>
+<p>【a, A】 进入编辑模式(Insert mode)：<br>a 为【从目前光标所在的下一个字符处开始插入】<br>A 为【从光标所在行的最后一个字符处开始插入】</p>
+<p>【o, O】 进入编辑模式：<br>o 为【在目前光标所在的下一行处插入新的一行】<br>O 为在目前光标所在处的上一行插入新的一行</p>
+<p>【r, R】 进入取代模式：<br>r 只会取代光标所在的那一个字符一次<br>R会一直取代光标所在的文字，直到按下 ESC 为止；</p>
+<p>【Esc】 退出编辑模式，回到一般模式</p>
+<p>一般模式切换到命令行模式可用的按钮说明<br>【:w】 保存编辑的内容<br>【:w!】强制写入该文件，但跟你对该文件的权限有关<br>【:q】 离开vi<br>【:q!】 不想保存修改强制离开<br>【:wq】 保存后离开<br>【:x】 保存后离开<br>【ZZ】 若文件没有更动，则不保存离开，若文件已经被更改过，则保存后离开</p>
+<p>【:w filename】 将编辑的数据保存成另一个文件（类似另存）<br>【:r filename】 在编辑的数据中，读入另一个文件的数据。即将【filename】 这个文件的内容加到光标所在行后面。</p>
+<p>【:n1,n2 w filename】 将n1到n2的内容保存成filename这个文件。<br>【:! command】暂时离开vi 到命令行模式下执行command的显示结果！例如 【:! ls /home】即可在 vi 当中察看/home底下以ls输出的文件信息！</p>
+<p>【:set nu】 显示行号<br>【:set nonu】 与 set nu 相反，为取消行</p>
+<p>vim的缓存文件、恢复与开启时的警告信息<br>我们知道一些常用的编辑软件，都有个恢复的功能，就是说当你的系统因为某些原因而导致类似当机的情况时，还可以利用这个恢复功能将之前未保存的数据找回来。我们的VIM也有这个功能。</p>
+<p>当我们在使用vim编辑时，vim会在与被编辑的文件的目录下，再建立一个名为 .filename.swp的文件。如果你的系统因为某些原因断线了， 导致你编辑的文件还没有保存，这个时候 .filenam.swp 就能够发会救援的功能了。</p>
+<p>我们来演示一下<br>vim man.config<br>ctrl+z放到后台执行<br>我们停止VI的进程<br>一种方法<br>ps aux |grep vi<br>kill -9 n</p>
+<p>另外一种方法<br>jobs<br>kill -9 %1</p>
+<p>我们用ls -l 命令来查看一下目录里面，会发现有个.man.config.swp的文件，这个文件就是个缓存的文件</p>
+<p>我们再来编辑<br>vim man.config<br>这时候会出现一些信息<br>问题一：可能有其他人或程序同时在编辑这个文件：<br>问题二：在前一个vim的环境中，可能因为某些不知名原因导致vim中断 (crashed)：</p>
+<p>右下角会出现六个命令项，其作用说明如下：<br>(O)pen Read-Only：打开此文件成为只读档， 可以用在你只是想要查阅该文件内容并不想要进行编辑行为时。一般来说，在上课时，如果你是登入到同学的计算机去看他的配置文件， 结果发现其实同学他自己也在编辑时，可以使用这个模式；<br>(E)dit anyway：还是用正常的方式打开你要编辑的那个文件， 并不会载入暂存盘的内容。如果说两个人都在编辑这个文件的话，很容易出现互相改变对方的文件等问题。<br>(R)ecover：就是加载暂存盘的内容，用在你要救回之前未保存的工作。 不过当你救回来并且储存离开vim后，还是要手动自行删除那个暂存档。<br>(D)elete it：你确定那个暂存档是无用的！那么开启文件前会先将这个暂存盘删除<br>(Q)uit：按下 q 就离开vim，不会进行任何动作回到命令提示字符。<br>(A)bort：忽略这个编辑行为，感觉上与 quit 非常类似！</p>
+<p>vim的功能<br>其实，目前大部分的Linux发行版本都以vim取代了vi。为什么要用vim呢？因为vim具有颜色显示的功能，并且还支持许多的程序语法(syntax)和相应的提示信息。查看自己的VI是不是被VIM代替，可以用<br>alias这个命令来查看是不是有alias vi=’vim’这一行。</p>
+<p>块选择<br>【v】字符选择，会将光标经过的地方反白选择<br>【V】 行选择，会将光标经过的行反白选择<br>【Ctrl+v】 块选择，可以用长方形的方式选择资料 （提制竖列）<br>【y】 将反白的地方复制<br>【d】 将反白的地方删除</p>
+<p>多文件编辑<br>大家在使用vim的时候，可能会碰到你需要复制一个文件中的某段到另外一个文件中，而vim不能够在关闭的时候，把这段保留住。或者是用其它的方法复制。<br>【vim file1 file2】</p>
+<p>【:n】编辑下一个文件<br>【:N】编辑上一个文件<br>【:files】列出目前这个vim编辑的所有文件</p>
+<p>多窗口功能<br>有两个需要对照着看的文件<br>【:sp filename】开启一个新窗口，如果有加 filename， 表示在新窗口开启一个新文件，否则表示两个窗口为同一个文件内容(同步显示)。</p>
+<p>【ctrl+w+j】<br>【ctrl+w+↓】按键的按法是：先按下 【ctrl】 不放， 再按下 w 后放开所有的按键，然后再按下 j (或向下箭头键)，则光标可移动到下方的窗口。</p>
+<p>【ctrl+w+k】<br>【ctrl+w+↑】同上，不过光标移动到上面的窗口。</p>
+<p>vim 环境设定与记录(<del>/.vimrc, ~/.viminfo)<br>如果我们以vim软件来查找一个文件内部的某个字符串时，这个字符串会被反白， 而下次我们再次以vim编辑这个文件时，该查找的字符串反白情况还是存在。另外，当我们重复编辑同一个文件时，当第二次进入该文件时， 光标竟然就在上次离开的那一行的开头。这个功能可能是方便，但也有不方便的时候。怎么会这样呢？这是因为我们的vim会主动的将你曾经做过的行为登录下来，那个记录动作的文件就是： ~/.viminfo，不想用这个功能，就直接删除</del>/.viminfo。只要你曾经使用过vim，那么你的家目录就会有这个文件。这个文件是自动产生的，你在vim里头所做过的动作，就可以在这个文件内部找到。有兴趣的朋友可以自己查看文件里面的内容。</p>
+<p>不过，对于每个不同的发行版本对vim的预设环境都不太相同。举例来说，某些版本在查找到关键词时并不会高亮度反白， 有些版本则会主动的帮你进行缩排（所谓的缩排，就是当你按下 Enter 编辑新的一行时，光标不会在行首，而是在与上一行的第一个非空格符处对齐）的行为。其实这些都可以自行设定的，下面我们就来看看vim的环境设定。<br>vim的环境设定参数有很多，如果你想要知道目前的设定值，可以在一般模式时输入【 :set all】来查阅，由于设定项目实在太多了，我们在这里就仅列出一些平时比较常用的一些简单的设定值，给大家提供参考。</p>
+<p>:set all “显示目前所有的环境参数设定值<br>:set hlsearch “高亮度反白(高亮度搜寻)<br>:set nohlsearch “取消高亮度反白(高亮度搜寻)<br>:set backspace=2 “在编辑的时候可随时用退格键删除 （０、１的时候，只针对刚输入的字符有效）<br>:set autoindent “自动缩排<br>:set noautoindent “取消自动缩排<br>:set ruler “可显示最后一行的状态<br>:set showmode “左下角那一行的状态<br>:set nu “显示行号<br>:set nonu “取消行号<br>:set bg=dark “显示不同的底色色调<br>:syntax on “进行语法检验，颜色显示<br>:syntax off “关闭语法检验</p>
+<p>了解完上面的内容后，下面我们就能写一下自己的vim操作环境。<br>整体vim的设定值一般是置在/etc/vimrc这个文件里面，不建议大家来修改他。我们在自己的家目录里面建立个.vimrc文件，在这里面写入自己的内容就能实现了。<br>[root@yufei ~]# vim ~/.vimrc<br>内容如下<br>set hlsearch “高亮度反白<br>set backspace=2 “可随时用退格键删除<br>set autoindent “自动缩排<br>set ruler “可显示最后一行的状态<br>set showmode “左下角那一行的状态<br>set nu “可以在每一行的最前面显示行号<br>set bg=dark “显示不同的底色色调<br>syntax on “进行语法检验，颜色显示<br>“这个文件的双引号 (“)表示的是注释</p>
+<p>保存退出vim后，在下次使用vim的时候，就会有自己的vim操作环境了。<br>提醒一点，这个文件中每一行前面加不加【:】效果都是一样的。</p>
+<hr>
+<p>##linux like vim必会知识</p>
+<p>一、我们为什么要学习vim编辑器？</p>
+<p>Linux的命令行界面下面有非常多的文本编辑器。比如经常听说的就有Emacs、pico、nano、joe与vim等。vim可以看做是vi的高级版。我们为什么一定要学习vim呢？有以下几个原因：</p>
+<p>(1)所有的Unix like系统都会内置vi文本编辑器，其他的文本编辑器则不一定会存在。</p>
+<p>(2)很多软件的编辑接口都会主动调用vi。</p>
+<p>(3)vim具有程序编辑的能力，可以主动以字体颜色辨别语法的正确性，方便程序设计。</p>
+<p>(4)程序简单，编辑速度快。</p>
+<p>二、下面先介绍一下vi的基本使用方法及其相关命令。</p>
+<p>vim编辑器的三种模式：一般模式、编辑模式和命令行模式。</p>
+<p>在一般模式中可以进行删除、复制和粘贴的功能，但是无法编辑文件内容。从一般模式切换到编辑模式可以按下i、I、o、O、a、A、r、R键。按下Esc键可以回到一般模式。在一般模式中输入：、/、？三个中的任意一个可以将光标移到最下面的一行。在这个模式中可以提供查找数据的操作，而读取、保存、大量替换字符、离开vii、显示行号等操作则是在此模式中完成的。需要注意的是，编辑模式与命令行模式之间是不能互相切换的。</p>
+<p>下面列出平时用的最多的vi命令：</p>
+<p>移动光标的方法：</p>
+<p>[Ctrl]+[f]：屏幕向下移动一页，相当于[PageDown]按键。</p>
+<p>[Ctrl]+[b]：屏幕向上移动一页，相当于[PageUp]按键。</p>
+<p>0或功能键[Home]：移动到这一行的最前面字符处。</p>
+<p>$或功能键[End]：移动到这一行的最后面字符处。</p>
+<p>G：移动到这个文件的最后一行。</p>
+<p>gg：移动到这个文件的第一行，相当于1G.</p>
+<p>N[Enter]：N为数字，光标向下移动N行。</p>
+<p>查找和替换：</p>
+<p>/word：向下寻找一个名称为word的字符串。</p>
+<p>?word：向上寻找一个名称为word的字符串。</p>
+<p>:n1,n2s/word1/word2/g：在第n1行和n2行之间寻找word1这个字符串，并且将其替换为word2.</p>
+<p>:1,$s/word1/word2/g：从第一行到最后一行寻找word1这个字符串，并且将其替换为word2.</p>
+<p>:1,$s/word1/word2/gc：从第一行到最后一行寻找word1这个字符串，并且将其替换为word2.且在替换前显示提示字符给用户确认是否需要替换。</p>
+<p>删除、复制和粘贴：</p>
+<p>x,X：在一行字中，x为向后删除一个字符（相当于[Del]键），X为向前删除一个字符（相当于[Backspace]）。</p>
+<p>dd：删除光标所在的一整行。</p>
+<p>ndd：删除光标所在的向下n行。</p>
+<p>yy：复制光标所在的一行。</p>
+<p>nyy：复制光标所在的向下n行。</p>
+<p>p,P：p为将已复制的内容在光标的下一行粘贴，P则为粘贴在光标的上一行。</p>
+<p>u：复原前一个操作。</p>
+<p>[Ctrl]+r：重做上一个操作。</p>
+<p>.：小数点，重复前一个操作。</p>
+<p>一般模式切换到编辑模式：</p>
+<p>i,I：进入插入模式，i为从目前光标所在处插入。I为在目前所在行的第一个非空格字符处开始插入。</p>
+<p>a，A：进入插入模式。a为从目前光标所在处的下一个字符处开始插入。A为从所在行的最后一个字符处开始插入。</p>
+<p>o，O：进入插入模式。o为在下一行插入。O为在上一行插入。</p>
+<p>r，R：进入替换模式。r只替换光标所在那个字符一次。R会一直替换光标所在字符，直到按下Esc键。</p>
+<p>一般模式切换到命令行：</p>
+<p>:w：将编辑的数据写入到硬盘中。</p>
+<p>:q：离开vi.后面加！为强制离开。</p>
+<p>:wq：保存后离开。:wq!为强制保存后离开。</p>
+<p>目前主要的编辑器都有恢复功能，vim也不例外。vim是通过“保存”文件来挽回数据的。</p>
+<p>每当我们在用vim编辑时，vim都会自动在被编辑的文件的目录下面再新建一个名为filename.swap的文件。这就是一个暂存文件，我们对文件filename所做的操作都会被记录到这个文件当中。如果系统意外崩溃，导致文件没有正常保存，那么这个暂存文件就会发挥作用。下面用一个例子来说明(Note：我用的是Ubuntu)。</p>
+<p>打开终端，输入命令，将etc目录下面的manpath.config复制到tmp目录下面，并且更改当前工作目录为tmp：</p>
+<p>cp /etc/manpath.config /tmp</p>
+<p>cd /tmp</p>
+<p>用vim编辑manpath.config文件：vim manpath.config。</p>
+<p>我们在vim的一般模式下按下Ctrl+z组合键，vim就会被丢到后台执行。回到命令提示符环境后，我们模拟将vim的工作不正常中断。</p>
+<p>kill -9 %1;强制杀死制定的进程。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+
+
+
+<div>
+  
+    
+
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------　　　　本文结束　<i class="fa fa-heart"></i>　感谢您的阅读　　　　-------------</div>
+    
+</div>
+
+  
+</div>
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/13/我的第一篇博客文章/" rel="next" title="我的第一篇博客文章">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客文章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+
+<div class="blog-sidebar-left">
+
+
+<div class="card-announcement">
+    <div class="card-content">
+        <div class="item_headline">
+            <i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i>
+            <span>公告</span>
+        </div>
+        <div class="announcement_content">
+            谢谢你这么帅，这么漂亮还来看我的博客，如果喜欢的话记得收藏哦
+        </div>
+    </div>
+</div>
+
+
+<div class="sidebar-categoreus">
+    <div class="item_headline">
+        <i class="fa fa-folder-open" aria-hidden="true"></i>
+        <span>分类</span>
+    </div>
+    <div class="categories-list-block">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul> 
+    </div>
+</div>
+
+
+<div class="recent-posts">
+    <div class="item_headline">
+        <i class="fa fa-history" aria-hidden="true"></i>
+        <span>近期文章<span>
+    </span></span></div>
+    <ul class="posts-list-block">
+        
+        
+        <li>
+            <a href="/2019/10/13/vim文本编辑器的使用/" title="vim文本编辑器的使用" target="_blank">vim文本编辑器的使用</a>
+        </li>
+        
+        <li>
+            <a href="/2019/10/13/我的第一篇博客文章/" title="我的第一篇博客文章" target="_blank">我的第一篇博客文章</a>
+        </li>
+        
+        <li>
+            <a href="/2019/10/13/hello-world/" title="Hello World" target="_blank">Hello World</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+
+</div>
+
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">TTKJ</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+ 
+
+
+ <span class="author" itemprop="copyrightHolder">TTKJ</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+-->
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
+
+
+<script type="text/javascript" src="/js/src/love.js"></script>
