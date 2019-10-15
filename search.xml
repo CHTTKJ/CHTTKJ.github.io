@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo d时如何省去输入账号密码</title>
+    <url>/2019/10/15/hexo-d%E6%97%B6%E5%A6%82%E4%BD%95%E7%9C%81%E5%8E%BB%E8%BE%93%E5%85%A5%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</url>
+    <content><![CDATA[<h2 id="记录一次踩坑"><a href="#记录一次踩坑" class="headerlink" title="记录一次踩坑"></a>记录一次踩坑</h2><h3 id="前情提要："><a href="#前情提要：" class="headerlink" title="前情提要："></a>前情提要：</h3><pre><code>在hexo d把博客往github仓库推送时，会让你输入github的账号和密码
+但是mac的最新系统很坑的一点是每次都会提示是否初始化钥匙串。
+于是我就在网上查找解决办法，成功解决此问题。</code></pre><a id="more"></a>
+
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><pre><code>本人系统为 macOS Catalina 10.15（巨后悔升级该系统，好多软件不支持）</code></pre><h3 id="第一步-设置SSH"><a href="#第一步-设置SSH" class="headerlink" title="第一步 设置SSH"></a>第一步 设置SSH</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/.sh </span><br><span class="line">sudo ssh-keygen -t rsa -C &quot;你的注册邮箱&quot; #生成ssh</span><br><span class="line"># 然后连按三下回车</span><br><span class="line"> </span><br><span class="line">sudo gedit id_rsa.pub #打开id_rsa.pub文件，并把内容复制到剪切板</span><br></pre></td></tr></table></figure>
+
+<p>登录到github打开设置：</p>
+<p><img src="/images/pasted-0.png" alt="upload successful"></p>
+<p>选择SSH and GPG keys，点New SSH</p>
+<p><img src="/images/pasted-1.png" alt="upload successful"></p>
+<p>配置SSH 点击Add SSH Key 完成</p>
+<p><img src="/images/pasted-2.png" alt="upload successful"></p>
+<h3 id="第二步-配置SSH"><a href="#第二步-配置SSH" class="headerlink" title="第二步 配置SSH"></a>第二步 配置SSH</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/.ssh #进入ssh目录</span><br><span class="line">sudo touch config #新建ssh的配置文件</span><br><span class="line">sudo vim config #修改ssh的配置文件</span><br></pre></td></tr></table></figure>
+
+<p>config文件的内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host github.com  </span><br><span class="line">User 你的注册邮箱 </span><br><span class="line">Hostname ssh.github.com  </span><br><span class="line">PreferredAuthentications publickey  </span><br><span class="line">IdentityFile ~/.ssh/id_rsa  </span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+
+<p>测试SSH是否配置完成</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo ssh git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>看到下图所示，即为配置成功！<br><img src="/images/pasted-3.png" alt="upload successful"></p>
+<h3 id="第三步-修改blog中的-config-yml"><a href="#第三步-修改blog中的-config-yml" class="headerlink" title="第三步 修改blog中的_config.yml"></a>第三步 修改blog中的_config.yml</h3><p>修改_config.yml文件中的deploy下的repo属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:你的name/你的username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h3 id="然后测试-hexo-d-是否成功"><a href="#然后测试-hexo-d-是否成功" class="headerlink" title="然后测试 hexo d 是否成功"></a>然后测试 hexo d 是否成功</h3><p>成功的标志为，hexo d后 直接完成博客上传。</p>
+<h3 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h3><pre><code>https://blog.csdn.net/Code_7900x/article/details/98949097</code></pre>]]></content>
+      <categories>
+        <category>踩坑</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown常用使用方法</title>
     <url>/2019/10/15/markdown%E5%B8%B8%E7%94%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="一：标题"><a href="#一：标题" class="headerlink" title="一：标题"></a>一：标题</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
