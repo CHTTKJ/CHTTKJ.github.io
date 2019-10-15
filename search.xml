@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>markdown常用使用方法</title>
+    <url>/2019/10/15/markdown%E5%B8%B8%E7%94%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="一：标题"><a href="#一：标题" class="headerlink" title="一：标题"></a>一：标题</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><a id="more"></a>
+
+<h1 id="二：字体"><a href="#二：字体" class="headerlink" title="二：字体"></a>二：字体</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
+<h1 id="三：引用"><a href="#三：引用" class="headerlink" title="三：引用"></a>三：引用</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>markdown常用语法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vim文本编辑器的使用</title>
     <url>/2019/10/13/vim%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>##vim简介</p>
-<p>vi与vim<br>vi编辑器是所有Unix及Linux系统下标准的编辑器，他就相当于windows系统中的记事本一样，它的强大不逊色于任何最新的文本编辑器。他是我们使用Linux系统不能缺少的工具。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，学会它后，您将在Linux的世界里畅行无阻。<br>vim 具有程序编辑的能力，可以以字体颜色辨别语法的正确性，方便程序设计；<br>因为程序简单，编辑速度相当快速。<br>vim可以当作vi的升级版本，他可以用多种颜色的方式来显示一些特殊的信息。<br>vim会依据文件扩展名或者是文件内的开头信息， 判断该文件的内容而自动的执行该程序的语法判断式，再以颜色来显示程序代码与一般信息。<br>vim里面加入了很多额外的功能，例如支持正则表达式的搜索、多文件编辑、块复制等等。 这对于我们在Linux上进行一些配置文件的修改工作时是很棒的功能。</p>
-<hr>
+    <content><![CDATA[<h2 id="vim简介"><a href="#vim简介" class="headerlink" title="vim简介"></a>vim简介</h2><p>vi与vim<br>vi编辑器是所有Unix及Linux系统下标准的编辑器，他就相当于windows系统中的记事本一样，它的强大不逊色于任何最新的文本编辑器。他是我们使用Linux系统不能缺少的工具。由于对Unix及Linux系统的任何版本，vi编辑器是完全相同的，学会它后，您将在Linux的世界里畅行无阻。<br>vim 具有程序编辑的能力，可以以字体颜色辨别语法的正确性，方便程序设计。</p>
 <a id="more"></a>
-<br>
-##具体使用
 
-<p>为何要学 vi<br>所有的Unix Like系统都会内建vi文本编辑器，其他的文本编辑器则不一定会存在；<br>一些软件的编辑接口会主动调用vi (例如 crontab, visudo, edquota 等命令)；</p>
+<p>因为程序简单，编辑速度相当快速。<br>vim可以当作vi的升级版本，他可以用多种颜色的方式来显示一些特殊的信息。<br>vim会依据文件扩展名或者是文件内的开头信息， 判断该文件的内容而自动的执行该程序的语法判断式，再以颜色来显示程序代码与一般信息。<br>vim里面加入了很多额外的功能，例如支持正则表达式的搜索、多文件编辑、块复制等等。 这对于我们在Linux上进行一些配置文件的修改工作时是很棒的功能。</p>
+<hr>
+<h2 id="vim具体使用"><a href="#vim具体使用" class="headerlink" title="vim具体使用"></a>vim具体使用</h2><p>为何要学 vi<br>所有的Unix Like系统都会内建vi文本编辑器，其他的文本编辑器则不一定会存在；<br>一些软件的编辑接口会主动调用vi (例如 crontab, visudo, edquota 等命令)；</p>
 <p>vi的使用<br>基本上vi可以分为三种状态，分别是一般模式、编辑模式和命令行模式，各模式的功能区分如下：</p>
 <p>一般模式：<br>以vi打开一个文件就直接进入一般模式了(这是默认的模式)。在这个模式中， 你可以使用上下左右按键来移动光标，你可以使用删除字符或删除整行来处理文件内容， 也可以使用复制、粘贴来处理你的文件数据。</p>
 <p>编辑模式：<br>在一般模式中可以进行删除、复制、粘贴等的操作，但是却无法编辑文件的内容，只有当到你按下【i, I, o, O, a, A, r, R】等任何一个字母之后才会进入编辑模式。这时候屏幕的左下方会出现【INSERT或 REPLACE】的字样，此时才可以进行编辑。而如果要回到一般模式时， 则必须要按下【Esc】即可退出编辑模式。</p>
@@ -115,23 +156,23 @@
 <p>kill -9 %1;强制杀死制定的进程。</p>
 ]]></content>
       <categories>
-        <category>随笔</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>vim</tag>
       </tags>
   </entry>
   <entry>
     <title>我的第一篇博客文章</title>
     <url>/2019/10/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>##第一章</p>
-<p>内容</p>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
 <hr>
-<p>##第二章</p>
-<p>内容</p>
-<p>##参考文献</p>
-<p>XXXX</p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>XXXX</p>
 ]]></content>
+      <tags>
+        <tag>helloworld</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
